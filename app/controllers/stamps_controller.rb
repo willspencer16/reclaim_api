@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class StampsController < ApplicationController
   def index
-    stamps = Stamp.order("created_at DESC")
+    stamps = Stamp.order('created_at DESC')
     render json: stamps
   end
 
@@ -22,7 +24,7 @@ class StampsController < ApplicationController
   end
 
   private
-  
+
   def stamp_param
     params.require(:stamp).permit(:user_id, :business_id, :redeemed)
   end
