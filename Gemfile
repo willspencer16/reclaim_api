@@ -30,8 +30,14 @@ gem 'rack-cors', require: 'rack/cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec'
+  gem "factory_bot_rails"
+  gem 'rspec-rails', "~> 3.8"
   gem 'simplecov'
+  gem "faker", git: "https://github.com/stympy/faker.git", branch: "master"
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 group :development do
