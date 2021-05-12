@@ -26,14 +26,4 @@ RSpec.describe Stamp, type: :model do
     subject.business_id = nil
     expect(subject).to_not be_valid
   end
-
-  it "is not valid without a 'created at' timestamp" do
-    subject.created_at = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "is not valid without a 'updated at' timestamp" do
-    subject.updated_at = nil
-    expect(subject).to_not be_valid
-  end
 end

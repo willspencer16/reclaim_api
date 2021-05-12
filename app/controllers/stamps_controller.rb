@@ -1,29 +1,45 @@
 # frozen_string_literal: true
 
 class StampsController < ApplicationController
+  before_action :find_stamp, only: %i[update destroy]
+
   def index
-    stamps = Stamp.order('created_at DESC')
-    render json: stamps
+    @stamps = Stamp.order('created_at DESC')
+    render json: @stamps
+  end
+
+  def show
+    render json: @stamp
   end
 
   def create
-    stamp = stamp.create(stamp_param)
-    render json: stamp
+    @stamp = Stamp.create(stamp_param)
+
+    if @stamp.save
+      render json: @stamp, status: :created
+    else
+      render json: @stamp.errors, status: :unprocessable_entity
+    end
   end
 
   def update
-    stamp = Stamp.find(params[:id])
-    stamp.update_attributes(stamp_param)
-    render json: stamp
+    if @stamp.update(stamp_param)
+      render json: @stamp, status: :created
+    else
+      render json: @stamp.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    stamp = Stamp.find(params[:id])
-    todo.destroy
+    @stamp.destroy
     head :no_content, status: :ok
   end
 
   private
+
+  def find_stamp
+    @stamp = Stamp.find(params[:id])
+  end
 
   def stamp_param
     params.require(:stamp).permit(:user_id, :business_id, :redeemed)
