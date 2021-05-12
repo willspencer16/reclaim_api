@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - bin/bundle
+    - spec/controller/stamps_controller_spec.rb
 
 Style/Documentation:
   Enabled: false
