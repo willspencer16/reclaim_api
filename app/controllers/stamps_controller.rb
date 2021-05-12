@@ -42,6 +42,6 @@ class StampsController < ApplicationController
   end
 
   def stamp_param
-    params.require(:stamp).permit(:user_id, :business_id, :redeemed)
+    params.permit(:user_id, :business_id, :redeemed)
   end
 end
