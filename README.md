@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Material used for setting up user model and controller:
+https://www.crondose.com/2019/04/building-the-user-model-and-session-controller-for-the-rails-api-authentication-app/
