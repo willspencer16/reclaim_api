@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Stamp, type: :model do
   subject do
-    described_class.new(
+    described_class.create(
       user_id: 1,
       business_id: 1,
       redeemed: false,
