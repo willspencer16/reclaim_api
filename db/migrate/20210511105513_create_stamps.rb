@@ -3,9 +3,9 @@
 class CreateStamps < ActiveRecord::Migration[6.1]
   def change
     create_table :stamps do |t|
-      t.string :user_id
-      t.string :business_id
-      t.boolean :redeemed
+      t.integer :user_id
+      t.integer :business_id
+      t.boolean :redeemed, default: false
 
       t.timestamps
     end
