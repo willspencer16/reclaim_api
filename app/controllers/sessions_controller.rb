@@ -9,10 +9,19 @@ class SessionsController < ApplicationController
       render json: {
         status: :created,
         logged_in: true,
-        user: user.username
+        user: user.username,
+        user_id: user.id
       }
     else
       render json: { status: 401 }
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    render json: {
+      status: :session_destroyed,
+      logged_in: false
+    }
   end
 end
