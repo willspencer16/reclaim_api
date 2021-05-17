@@ -17,9 +17,4 @@ RSpec.describe UserRewardJoin, type: :model do
     subject.reward_id = nil
     expect(subject).to_not be_valid
   end
-
-  # it 'is not valid without a password' do
-  #   subject.password = nil
-  #   expect(subject).to_not be_valid
-  # end
 end
