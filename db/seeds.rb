@@ -9,3 +9,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Stamp.create(user_id: 666, business_id: 666, redeemed: false)
+
+User.create(username: "testUser", password:"testPassword")
