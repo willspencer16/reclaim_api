@@ -25,3 +25,14 @@ Things you may want to cover:
 
 Material used for setting up user model and controller:
 https://www.crondose.com/2019/04/building-the-user-model-and-session-controller-for-the-rails-api-authentication-app/
+
+
+## Reward Model Curl Requests
+
+Show: curl http://localhost:3000/api/v1/rewards
+
+Create: curl -X POST -d reward[reward_name]="" -d reward[reward_content]="" -d reward[business_id]=""  http://localhost:3000/api/v1/rewards
+
+Update: curl -X PATCH -d reward[reward_content]="" http://localhost:3000/api/v1/rewards/2
+
+Destroy: curl -X DELETE http://localhost:3000/api/v1/rewards/1
