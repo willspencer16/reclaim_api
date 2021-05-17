@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UserRewardJoin, type: :model do
+RSpec.describe UserReward, type: :model do
   subject do
     described_class.create(
       reward_id: 1,
