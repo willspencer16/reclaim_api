@@ -10,7 +10,6 @@ RSpec.describe UserRewardsController, type: :controller do
     }
   end
 
-
   describe "GET #index" do
     before do
       get :index
@@ -54,6 +53,7 @@ RSpec.describe UserRewardsController, type: :controller do
         redeemed: true
       }
     end
+
     it "returns updated redeemed status" do
       user_reward = UserReward.create(valid_attributes)
       put :update, params: { id: user_reward.to_param, user_reward: new_attributes }
