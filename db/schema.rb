@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_101705) do
+ActiveRecord::Schema.define(version: 2021_05_18_102414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "rewards", force: :cascade do |t|
     t.string "reward_name"
@@ -24,9 +31,9 @@ ActiveRecord::Schema.define(version: 2021_05_17_101705) do
   end
 
   create_table "stamps", force: :cascade do |t|
-    t.string "user_id"
-    t.string "business_id"
-    t.boolean "redeemed"
+    t.integer "user_id"
+    t.integer "business_id"
+    t.boolean "redeemed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
