@@ -11,7 +11,7 @@ class UserRewardsController < ApplicationController
   end
 
   def create
-    @user_reward = UserReward.create(reward_param)
+    @user_reward = UserReward.create(user_reward_param)
 
     if @user_reward.save
       render json: @user_reward, status: :created
@@ -21,7 +21,7 @@ class UserRewardsController < ApplicationController
   end
 
   def update
-    if @user_reward.update(reward_param)
+    if @user_reward.update(user_reward_param)
       render json: @user_reward, status: :created
     else
       render json: @user_reward.errors, status: :unprocessable_entity
@@ -40,6 +40,6 @@ class UserRewardsController < ApplicationController
   end
 
   def user_reward_param
-    params.require(:reward).permit(:user_id, :reward_id, :redeemed)
+    params.require(:user_reward).permit(:user_id, :reward_id, :redeemed)
   end
 end
