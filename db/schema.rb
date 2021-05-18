@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_101705) do
+ActiveRecord::Schema.define(version: 2021_05_18_093249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,29 @@ ActiveRecord::Schema.define(version: 2021_05_17_101705) do
   end
 
   create_table "stamps", force: :cascade do |t|
-    t.string "user_id"
-    t.string "business_id"
+    t.integer "user_id"
+    t.integer "business_id"
+    t.boolean "redeemed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_reward_joins", force: :cascade do |t|
+    t.integer "reward_id"
+    t.integer "user_id"
     t.boolean "redeemed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_rewards", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "reward_id"
+    t.boolean "redeemed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reward_id"], name: "index_user_rewards_on_reward_id"
+    t.index ["user_id"], name: "index_user_rewards_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
