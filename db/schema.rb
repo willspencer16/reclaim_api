@@ -31,14 +31,6 @@ ActiveRecord::Schema.define(version: 2021_05_18_093249) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_reward_joins", force: :cascade do |t|
-    t.integer "reward_id"
-    t.integer "user_id"
-    t.boolean "redeemed"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "user_rewards", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "reward_id"

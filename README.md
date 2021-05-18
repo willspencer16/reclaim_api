@@ -29,9 +29,20 @@ https://www.crondose.com/2019/04/building-the-user-model-and-session-controller-
 
 ## Reward Model Curl Requests
 
-Show: curl http://localhost:3000/api/v1/rewards
+Index: curl http://localhost:3000/api/v1/rewards
 
 Create: curl -X POST -d reward[reward_name]="" -d reward[reward_content]="" -d reward[business_id]=""  http://localhost:3000/api/v1/rewards
+
+Update: curl -X PATCH -d reward[reward_content]="" http://localhost:3000/api/v1/rewards/2
+
+Destroy: curl -X DELETE http://localhost:3000/api/v1/rewards/1
+
+
+## User Reward Model Curl Requests
+
+Index: curl http://localhost:3000//api/v1/rewards/:reward_id/userrewards
+
+Create: curl -X POST -d userreward[reward_id]="" -d userreward[user_id]="" -d userreward[redeemed]=""  http://localhost:3000/api/v1/rewards/:reward_id/userrewards
 
 Update: curl -X PATCH -d reward[reward_content]="" http://localhost:3000/api/v1/rewards/2
 

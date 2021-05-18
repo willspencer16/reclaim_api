@@ -1,17 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe UserRewardsController, type: :controller do
-  let(:valid_attributes) do
-    {
-      reward_id: 1,
-      user_id: 1,
-      reddemed: false
-    }
-  end
-  
-  let(:invalid_attributes) do
-    { reward_id: nil }
-  end
 
   describe "GET #index" do
     before do
@@ -22,6 +11,7 @@ RSpec.describe UserRewardsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+  
 
 
 
