@@ -14,10 +14,10 @@ class AuthorizeApiRequest
   attr_reader :headers
 
   def user
+    puts decoded_auth_token[:user_id]
     @user ||= User.find(decoded_auth_token[:user_id]) if decoded_auth_token
     puts "User Profiles"
     puts @user
-    puts @user.id
     @user || errors.add(:token, 'Invalid token') && nil
   end
 
