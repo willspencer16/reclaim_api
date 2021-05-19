@@ -29,8 +29,6 @@ class AuthorizeApiRequest
     puts JsonWebToken.decode(http_auth_header)
     puts 'did anything come '
     @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
-    puts "decoded_auth_token"
-    puts @decoded_auth_token
   end
 
   def http_auth_header
