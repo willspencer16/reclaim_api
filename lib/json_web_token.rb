@@ -22,6 +22,7 @@ class JsonWebToken
       body = JWT.decode(token, secret_key_base)[0]
       HashWithIndifferentAccess.new body
     rescue
+      puts "is this being rescued?"
       nil
     end
   end
