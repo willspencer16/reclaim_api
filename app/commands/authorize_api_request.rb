@@ -20,8 +20,6 @@ class AuthorizeApiRequest
     puts "User"
     puts @user
     @user || errors.add(:token, 'Invalid token') && nil
-    puts "User - error?"
-    puts @user
   end
 
   def decoded_auth_token
