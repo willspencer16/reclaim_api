@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RewardsController < ApplicationController
-  before_action :find_reward, only: %i[update destroy]
+  before_action :find_reward, only: %i[show update destroy]
 
   def index
     @rewards = Reward.order('created_at DESC')
